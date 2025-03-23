@@ -1,6 +1,6 @@
 {
   "name": "game-server-status",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Check the status of game servers (Minecraft, FiveM)",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,9 @@
     "minecraft",
     "fivem"
   ],
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
+},
   "author": "tolongames",
   "license": "MIT",
   "dependencies": {
