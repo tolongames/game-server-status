@@ -26,10 +26,7 @@ jobs:
 
     - name: Run tests (optional)
       run: npm test  # If you have tests set up, you can run them here
-
-    - name: Build project (optional)
-      run: npm run build  # If you have a build script
-
+      
     - name: Publish to npm
       run: npm publish
       env:
