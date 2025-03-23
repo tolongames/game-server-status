@@ -54,7 +54,6 @@ async function checkMinecraftJava(ip, port = 25565) {
     });
 }
 
-
 async function checkFiveM(ip, port = 30120) {
     log(`Checking FiveM server at ${ip}:${port}`);
     try {
