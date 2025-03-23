@@ -3,9 +3,6 @@
   "version": "0.0.5",
   "description": "Check the status of game servers (Minecraft, FiveM)",
   "main": "index.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "scripts": {
     "test": "echo \"No tests specified\""
   },
