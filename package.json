@@ -12,6 +12,9 @@
     "minecraft",
     "fivem"
   ],
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
+},
   "author": "tolongames",
   "license": "MIT",
   "dependencies": {
