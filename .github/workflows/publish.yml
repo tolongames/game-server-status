@@ -1,0 +1,36 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main  # Trigger on PRs merged into the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Set the Node.js version you are using
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests (optional)
+      run: npm test  # If you have tests set up, you can run them here
+
+    - name: Build project (optional)
+      run: npm run build  # If you have a build script
+
+    - name: Publish to npm
+      run: npm publish
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

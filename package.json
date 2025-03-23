@@ -1,0 +1,22 @@
+{
+  "name": "game-server-status",
+  "version": "1.0.0",
+  "description": "Check the status of game servers (Minecraft, FiveM)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "game server",
+    "status",
+    "minecraft",
+    "fivem"
+  ],
+  "author": "tolongames",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "dgram": "^1.0.1",
+    "node-cache": "^5.1.2"
+  }
+}
