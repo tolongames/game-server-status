@@ -16,7 +16,7 @@ A powerful and efficient Node.js package to check the online status of popular g
 To install the package, use npm:
 
 ```bash
-npm install game-server-status-checker
+npm install game-server-status
 ```
 
 ## Usage
