@@ -143,4 +143,8 @@ This project is licensed under the MIT License.
 
 ## Contributions
 
+<<<<<<< HEAD
 Contributions are welcome! If you find any bugs or want to suggest a feature, feel free to open an issue or submit a pull request.
+=======
+Contributions are welcome! If you find any bugs or want to suggest a feature, feel free to open an issue or submit a pull request.
+>>>>>>> 0bd3d9f84910b024b69284b2be485988f41d0e6b
