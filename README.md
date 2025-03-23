@@ -26,7 +26,7 @@ npm install game-server-status
 To check the status of a single server, use the `getServerStatus` function. Provide the game, IP address, and port.
 
 ```javascript
-const { getServerStatus } = require('game-server-status-checker');
+const { getServerStatus } = require('game-server-status');
 
 (async () => {
     const serverStatus = await getServerStatus('minecraft', '127.0.0.1', 25565);
