@@ -1,6 +1,6 @@
 {
   "name": "game-server-status",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Check the status of game servers (Minecraft, FiveM)",
   "main": "index.js",
   "scripts": {
