@@ -28,6 +28,8 @@ jobs:
       run: npm test  # If you have tests set up, you can run them here
       
     - name: Publish to npm
-      run: npm publish
+      run: |
+        echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+        npm publish --registry=https://npm.pkg.github.com
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
