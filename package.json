@@ -1,5 +1,5 @@
 {
-  "name": "@tolongames/game-server-status",
+  "name": "game-server-status",
   "version": "0.0.5",
   "description": "Check the status of game servers (Minecraft, FiveM)",
   "main": "index.js",
