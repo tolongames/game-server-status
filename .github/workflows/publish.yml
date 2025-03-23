@@ -26,10 +26,11 @@ jobs:
 
     - name: Run tests (optional)
       run: npm test  # If you have tests set up, you can run them here
-      
+
+    - name: Set up .npmrc for GitHub Packages
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
     - name: Publish to npm
-      run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-        npm publish --registry=https://npm.pkg.github.com
+      run: npm publish --registry=https://npm.pkg.github.com
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
