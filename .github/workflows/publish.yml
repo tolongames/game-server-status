@@ -17,6 +17,16 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+      
+      - name: Check if NPM_TOKEN is available
+        run: |
+            if [ -z "${{ secrets.NPM_TOKEN }}" ]; then
+              echo "NPM_TOKEN is not set"
+            else
+              echo "NPM_TOKEN is set"
+            fi
+        
+        
 
       - name: Install dependencies
         run: npm install
