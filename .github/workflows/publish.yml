@@ -18,13 +18,9 @@ jobs:
         with:
           node-version: '14'
       
-      - name: Check if NPM_TOKEN is available
-        run: |
-            echo "NPM_TOKEN is set: ${{ secrets.NPM_TOKEN != '' }}"
+      - name: Set NPM token in npm config
+        run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
 
-      - name: Set NPM_TOKEN in .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
-        
       - name: Install dependencies
         run: npm install
 
