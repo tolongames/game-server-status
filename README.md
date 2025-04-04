@@ -1,47 +1,38 @@
-
 # Game Server Status Checker
 
-A powerful and efficient Node.js package to check the online status of popular game servers like Minecraft, FiveM, CS:GO, and Rust. This package provides easy-to-use functions to monitor the health of your game servers, cache the results for faster performance, and handle multiple servers at once.
+A lightweight and efficient Node.js module to check the online status of popular game servers: **Minecraft Java**, **FiveM**, **CS:GO**, and **Rust**. Includes built-in caching, debug logging, and supports multiple servers at once.
 
-## Features
+## ✨ Features
 
-- **Support for multiple games**: Monitor servers for Minecraft Java, FiveM, CS:GO, and Rust.
-- **Caching**: Automatically caches server status for 5 minutes to reduce the number of requests.
-- **Customizable options**: You can select specific data to return (e.g., number of players) and define return types.
-- **Force update**: Option to force a fresh status check and bypass cache.
-- **Interval monitoring**: Check server status on a cyclical basis at a set interval.
+- ✅ **Supports popular games**: Minecraft Java, FiveM, CS:GO, and Rust
+- ⚡ **Built-in caching**: Avoid unnecessary requests with a 5-minute cache
+- 🎯 **Custom options**: Force updates, select specific return fields
+- 🔁 **Cyclical monitoring**: Ping servers on an interval
+- 🐞 **Debug mode**: Enable with `DEBUG=true`
 
-## Installation
-
-To install the package, use npm:
+## 📦 Installation
 
 ```bash
 npm install game-server-status
 ```
 
-## Usage
+## 🚀 Usage
 
-### 1. Check a Single Server Status
-
-To check the status of a single server, use the `getServerStatus` function. Provide the game, IP address, and port.
+### 1. Check a Single Server
 
 ```javascript
 const { getServerStatus } = require('game-server-status');
 
 (async () => {
-    const serverStatus = await getServerStatus('minecraft', '127.0.0.1', 25565);
-    console.log(serverStatus);
+    const status = await getServerStatus('minecraft', '127.0.0.1', 25565);
+    console.log(status);
 })();
 ```
 
-This function will return a structured object with the server status, players online, server name, version, and ping.
-
-### 2. Check Multiple Servers
-
-You can also check the status of multiple servers at once using `checkMultipleServers`.
+### 2. Check Multiple Servers at Once
 
 ```javascript
-const { checkMultipleServers } = require('game-server-status-checker');
+const { checkMultipleServers } = require('game-server-status');
 
 const servers = [
     { game: 'minecraft', ip: '127.0.0.1', port: 25565 },
@@ -55,96 +46,82 @@ const servers = [
 })();
 ```
 
-This will return an array of server statuses for all the specified servers.
-
-### 3. Cyclical Server Status Check
-
-If you want to continuously monitor a server, you can use `pingServerCyclically`.
+### 3. Cyclical Monitoring
 
 ```javascript
-const { pingServerCyclically } = require('game-server-status-checker');
+const { pingServerCyclically } = require('game-server-status');
 
 pingServerCyclically('minecraft', '127.0.0.1', 25565, 60000, (status) => {
     console.log('Server status:', status);
 });
 ```
 
-This will check the server status every 60 seconds and call the provided callback with the status.
+> This function will ping the server every 60 seconds and call your callback with the status.
 
-## Options
+## 🛠 Options
 
-- `force`: If set to `true`, the cache will be bypassed, and the server status will be fetched anew.
-- `select`: An array of keys to filter the response and return only selected data.
-- `returnType`: A specific field to return, such as the number of players or ping.
+- `force` – Set to `true` to bypass the cache and get fresh data
+- `select` – Return only selected keys (e.g., `['players', 'ping']`)
+- `returnType` – Return only one specific value (e.g., `'players'`)
 
-### Example with options:
+### Example with Options
 
 ```javascript
-const status = await getServerStatus('minecraft', '127.0.0.1', 25565, {
-    force: true, 
-    select: ['players', 'ping'],
+const status = await getServerStatus('fivem', '127.0.0.1', 30120, {
+    force: true,
+    select: ['players', 'serverName'],
 });
 console.log(status);
 ```
 
-## Supported Games
+## 🎮 Supported Games
 
 - **Minecraft Java**
 - **FiveM**
 - **CS:GO**
 - **Rust**
 
-## Caching
+## 🧠 Caching
 
-By default, the status of each server is cached for 5 minutes. If the same request is made within that time frame, the cached result is returned. To force a fresh request, set `force: true`.
+This module uses in-memory caching (5 minutes by default) to improve performance. You can force a fresh check using the `force` option.
 
-## Debugging
+## 🐛 Debugging
 
-If you want to enable debug logging, set the `DEBUG` environment variable to `true` before running the script:
+Enable debug logging by setting the environment variable:
 
 ```bash
 DEBUG=true node yourscript.js
 ```
 
-## Example Response
+## 📤 Example Responses
 
-For a Minecraft Java server, the response may look like this:
-
+**Minecraft Java:**
 ```json
 {
-    "online": true,
-    "message": "Server is online",
-    "game": "Minecraft Java",
-    "players": "12/20",
-    "ping": 50,
-    "serverName": "Minecraft Server",
-    "version": "1.16.4"
+  "online": true,
+  "message": "Server is online",
+  "game": "Minecraft Java",
+  "players": "12/20",
+  "ping": 50,
+  "serverName": "Minecraft Server",
+  "version": "1.16.4"
 }
 ```
 
-For a FiveM server:
-
+**FiveM:**
 ```json
 {
-    "online": true,
-    "data": { ... },
-    "game": "FiveM",
-    "players": 24,
-    "maxPlayers": 32,
-    "version": "1.0.0",
-    "serverName": "FiveM Server",
-    "ping": 40
+  "online": true,
+  "data": { /* original /info.json response */ },
+  "game": "FiveM",
+  "players": 24,
+  "maxPlayers": 32,
+  "version": "1.0.0",
+  "serverName": "FiveM Server",
+  "ping": 40
 }
 ```
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License.
-
-## Contributions
-
-<<<<<<< HEAD
-Contributions are welcome! If you find any bugs or want to suggest a feature, feel free to open an issue or submit a pull request.
-=======
-Contributions are welcome! If you find any bugs or want to suggest a feature, feel free to open an issue or submit a pull request.
->>>>>>> 0bd3d9f84910b024b69284b2be485988f41d0e6b
